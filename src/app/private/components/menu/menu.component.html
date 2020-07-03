@@ -1,0 +1,55 @@
+<div class="flex">
+
+  <div id="profile" class="mb-20">
+
+    <div class="mask">
+      <img [src]="user.img" alt="">
+    </div>
+
+    <div id="info">
+      <p class="t-2 mb-10">{{user.name}}</p>
+      <p class="t-3"><span class="text-purple">Ranking </span> {{user.rank}}</p>
+    </div>
+  </div>
+  <hr>
+  <div id="info-user">
+    <div class="item">
+      <div class="rounded-icon bg-green text-black">
+        <i class="far fa-eye"></i>
+      </div>
+      <div class="info">
+        <p class="t-2 bold">{{user.views}}</p>
+        <p class="t-3">VIEWS</p>
+      </div>
+    </div>
+
+    <div class="item">
+
+      <div class="rounded-icon bg-purple text-black">
+        <i class="fas fa-trophy"></i>
+      </div>
+      <div class="info">
+        <p class="t-2 bold">{{user.pts}}</p>
+        <p class="t-3">PONTOS</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="rounded-icon bg-yellow text-black">
+        <i class="fas fa-dollar-sign"></i>
+      </div>
+      <div class="info">
+        <p class="t-2 bold">{{user.gcoin}}</p>
+        <p class="t-3">GCOIN</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item options">
+    <a routerLink="/login" class="a-tooltip text-danger" data-tooltip="Sair">
+      <i class="fas fa-times"></i>
+    </a>
+
+  </div>
+
+</div>

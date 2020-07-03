@@ -3,14 +3,23 @@ import { CommonModule } from '@angular/common';
 
 import { PrivateRoutingModule } from './private-routing.module';
 import { HttpService } from '../services/http.service';
-import { AuthGuard } from '../guards/auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { PlayersComponent } from './components/players/players.component';
+import { ItensComponent } from './components/itens/itens.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-  ],
+  DashboardComponent,
+  MenuComponent,
+  PlayersComponent,
+  ItensComponent],
   imports: [
     CommonModule,
-    PrivateRoutingModule
+    PrivateRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers : [HttpService]
 })

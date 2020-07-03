@@ -1,0 +1,58 @@
+<div class="flex">
+    <main>
+        <div class="avatar">
+            <p class="t-1" *ngIf="viewForm; else upload">G</p>
+            <ng-template #upload>
+                <img [src]="img" alt="perfil" *ngIf="hasImg; else camera">
+                <ng-template #camera>
+                    <label for="file-upload">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                </ng-template>
+
+                <input id="file-upload" type="file" accept="image/*" (change)="changeListener($event)" />
+            </ng-template>
+
+        </div>
+        <p class="t-2 mb-20" *ngIf="viewForm">Bem vindo ao gameando!</p>
+        <hr class="mb-20">
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="mb-20" *ngIf="viewForm; else register">
+
+            <input class="form-control mb-20" type="text" placeholder="Apelido" formControlName="name">
+
+            <input class="form-control mb-20" type="password" placeholder="Senha" formControlName="password">
+
+            <p *ngIf="flagError" class="text-danger t-3 mb-20">{{errorMessage}}</p>
+
+            <button type="submit" name="button" class="btn btn-primary btn-block">Entrar</button>
+
+        </form>
+        <ng-template #register>
+
+            <form [formGroup]="regForm" (ngSubmit)="signUp()" class="mb-20">
+
+                <input class="form-control mb-20" type="text" placeholder="Apelido" formControlName="name">
+
+                <input class="form-control mb-20" type="password" placeholder="Senha" formControlName="password">
+
+                <input class="form-control mb-20" type="password" placeholder="Confirmar Senha"
+                    formControlName="confirm_password">
+
+                <p *ngIf="flagError" class="text-danger t-3 mb-20">{{errorMessage}}</p>
+                <p *ngIf="flagSuccess" class="text-success t-3 mb-20">Cadastro realizado com sucesso!</p>
+
+                <button type="submit" name="button" class="btn btn-primary btn-block">Cadastrar</button>
+
+            </form>
+        </ng-template>
+
+        <span *ngIf="viewForm">
+            <p class="t-3">Ainda não possui conta?</p>
+            <p class="t-3 bold pointer text-center" (click)="changeView()">Cadastre-se</p>
+        </span>
+
+
+    </main>
+
+</div>

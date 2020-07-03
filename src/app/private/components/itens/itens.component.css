@@ -1,0 +1,55 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-item{
+    display: flex;
+    padding: 15px;
+    background-color: #2d2f31;
+    border-radius: 17px;
+    margin-bottom: 25px !important;
+}
+
+.mask{
+    width: 300px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.mask img{
+    width: 500px;
+}
+
+.info{
+    width: 400px;
+}
+
+.modal-header{
+    border-bottom: unset;
+}
+.modal-body{
+    display: flex;
+    flex-direction: column;
+}
+.modal-footer{
+    border-top: unset;
+}
+.modal-content{
+    background-color: #171819;
+    border-radius: 17px;
+}
+.fade{
+    background: #000000bf;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    background-color: #828EFF;
+}

@@ -1,0 +1,31 @@
+<p class="t-3">
+  Players Online
+</p>
+<div class="flex">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="t-3"></th>
+        <th scope="col" class="t-3">Nome</th>
+        <th scope="col" class="t-3">Ranking</th>
+        <th scope="col" class="t-3">Pontos</th>
+        <th scope="col" class="t-3">Views</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <th scope="row">
+          <div class="mask">
+            <img [src]="player.img" alt="profile">
+          </div>
+        </th>
+        <td>{{player.name}}</td>
+        <td>{{player.rank}}</td>
+        <td>{{player.pts}}</td>
+        <td>{{player.views}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

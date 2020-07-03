@@ -1,84 +1,62 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { API_URL, ENDPOINT } from 'src/environments/environment';
-import { tap } from 'rxjs/operators';
-import * as jwt_decode from 'jwt-decode';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../models/index.model';
-import * as moment from 'moment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  currentUser
 
-  constructor(private http : HttpClient) { }
+  constructor() { }
 
-  /**
-   * Método login com captura de token
-   * @param email 
-   * @param password 
-   * @returns função login
-   */
-  login(email : string, password : string){
-    return this.http.post(`${API_URL}${ENDPOINT.LOGIN}`, {email : email , password : password})
-          .pipe(
-            tap((res:HttpHeaders)=>{
-              localStorage.setItem("acessToken", res.get("Authorization"))
-            })
-          )
+  signUp(user) {
+    if (this.hasUsers) {
+      const list = JSON.parse(localStorage.getItem('list_user'))
+      list.push(user)
+      localStorage.setItem('list_user', JSON.stringify(list))
+    } else {
+      localStorage.setItem('list_user', JSON.stringify([
+        user
+      ]))
+    }
   }
+
+  login(loginUser) {
+    let result = false
+    if (this.hasUsers) {
+      JSON.parse(localStorage.getItem('list_user')).forEach(user => {
+        if (user.name == loginUser.name && user.password == loginUser.password) {
+          localStorage.setItem('user', JSON.stringify(user))
+          this.currentUser = user
+          result = true
+        }
+      });
+    }
+    return result
+  }
+
 
   /**
    * Verificando se o usuário ainda está logado
    */
   public get loggedIn(): boolean {
-    return (localStorage.getItem('access_token') !== null);
+    return (localStorage.getItem('user') !== null);
   }
 
   /**
-   * Método para acessar o valor do objeto que armazena o usuário
-   * @returns Usuário Atual
-   */
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+  * Verificando se o usuário ainda está logado
+  */
+  public get hasUsers(): boolean {
+    return (localStorage.getItem('list_user') !== null);
   }
 
-
   /**
-   * Método para limpar o token do local storage
+   * Verificando se o usuário ainda está logado
    */
-  cleanStorage(){
-    localStorage.removeItem("acessToken")
+  getUser() {
+    return JSON.parse(localStorage.getItem('user'));
   }
-
-
-  /**
-   * Método para decodificar o token
-   * @param token 
-   */
-	getDecodedAccessToken(token) {
-		try {
-			return jwt_decode(token);
-		} catch (Error) {
-			return null;
-		}
-  }
-  
-  /**
-   * Método para transformar o token Expiration ( Dado em segundos ) em um Date()
-   * @returns date
-   * @param secounds 
-   */
-	timeToken(secounds) {
-		let dateTransform = new Date();
-		dateTransform.setSeconds(secounds);
-		return dateTransform;
-	}
-
 
 
 }

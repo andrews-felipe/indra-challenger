@@ -1,4 +1,140 @@
-/* You can add global styles to this file, and also import other style files */
+body { 
+    color: white !important;
+    background: #222325; 
+    font-family: 'Noto Sans', sans-serif !important;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button{
+    height: 35px;
+}
+
+.text-purple{
+    color: #828EFF;
+}
+
+.text-black{
+    color: #222325;
+}
+
+.mb-10{
+    margin-bottom: 10px !important;
+}
+
+.mb-20{
+    margin-bottom: 20px !important;
+}
+
+.t-1{
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.t-2{
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.t-3{
+    margin: 0;
+    font-size: 0.7rem;
+}
+
+.bg-green{
+    background-color: #AAFF82;
+}
+
+.bg-purple{
+    background-color: #828EFF;
+}
+
+.bg-yellow{
+    background-color: #FFDB7D;
+}
+
+.bold{
+    font-weight: 900;
+}
+
+.center-self{
+    align-self: center;
+}
+
+hr{
+    border-top: 1px solid #bfbfbf1a;
+}
+
+a{
+    color: white;
+}
+a:hover{
+    color: #d3d1d1;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.form-control, .form-control:focus{
+    background-color: #222325;
+    
+    border: none;
+}
+
+.form-control:focus{
+    color: white;
+}
+
+.btn-primary{
+    background-color: #828eff;
+    border-color: #828eff;
+    font-size: 0.8rem;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active{
+    background-color: #727de8;
+    border-color: #727de8;
+}
+
+/* Estilo para o tooltip */
+
+.a-tooltip{
+    position:relative;
+}
+
+.a-tooltip:after
+{
+    background-color: black;
+    border-radius: 2px;
+    color: white;
+    font-size: 0.8rem;
+    box-sizing: border-box;
+    content: attr(data-tooltip);
+    display: none;
+    padding: 5px;
+    position: absolute;
+    right: -20px;
+    bottom: -35px;
+    z-index: 3;
+    transition: 0.2s;
+}
+
+.a-tooltip:hover:after {
+    display:block;
+}
+
+.table{
+    color: white;
+}
+
+.table thead th{
+    border-bottom: unset;
+}
+
+.table td, .table th{
+    border-top: unset;
+    vertical-align: middle;
+}
+
+.table td{
+    font-size: 0.9rem;
+}

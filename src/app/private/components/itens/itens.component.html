@@ -1,0 +1,51 @@
+<div class="flex">
+  <div class="header mb-20">
+    <p class="t-2 bold mb-10">Itens</p>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Adicionar</button>
+  </div>
+
+  <div class="main">
+
+    <div class="post-item" *ngFor="let item of posts">
+      <div class="mask">
+        <img [src]="item.img" alt="imagem">
+      </div>
+      <div class="info">
+        <p class="t-1 bold">{{item.title}}</p>
+        <p class="t-3 text-purple">{{item.author}}</p>
+        <p class="t-3">{{item.body}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title t-2 bold" id="addModalCenterTitle">Adicionar Item</p>
+      </div>
+      <div class="modal-body">
+        <div class="mask center-self mb-20">
+          <img [src]="img" alt="">
+        </div>
+        <label for="file-upload" class="btn btn-primary mb-20">
+          <i class="fas fa-upload"></i> Anexar Imagem
+        </label>
+        <input id="file-upload" type="file" accept="image/*" (change)="changeListener($event)" />
+
+
+        <input class="form-control mb-20" type="text" placeholder="Título" [(ngModel)]="title">
+        <textarea class="form-control mb-20" placeholder="Conteúdo" [(ngModel)]="body"></textarea>
+        <p *ngIf="flagError" class="text-danger t-3">{{errorMessage}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addPost()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
