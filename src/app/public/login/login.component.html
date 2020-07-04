@@ -47,10 +47,13 @@
             </form>
         </ng-template>
 
-        <span *ngIf="viewForm">
+        <span *ngIf="viewForm; else goBack">
             <p class="t-3">Ainda não possui conta?</p>
             <p class="t-3 bold pointer text-center" (click)="changeView()">Cadastre-se</p>
         </span>
+        <ng-template #goBack>
+            <p class="t-3 bold pointer text-center" (click)="changeView()">Voltar</p>
+        </ng-template>
 
 
     </main>

@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
 
   goToHome() {
     this.router.navigateByUrl('./home', { relativeTo: this.route });
+    this.router.navigateByUrl('./home', { relativeTo: this.route });
 
   }
 
@@ -84,6 +85,9 @@ export class LoginComponent implements OnInit {
   }
 
   changeView() {
+    this.flagSuccess = false;
+    this.flagError = false;
+    this.hasImg = false
     this.viewForm = !this.viewForm
   }
 
