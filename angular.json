@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cronos-management": {
+    "gameando": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",

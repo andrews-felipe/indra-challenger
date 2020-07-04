@@ -36,6 +36,10 @@ export class AuthService {
     return result
   }
 
+  sigOut() {
+    localStorage.removeItem("user");
+  }
+
 
   /**
    * Verificando se o usuário ainda está logado

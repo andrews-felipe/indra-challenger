@@ -56,8 +56,6 @@ export class LoginComponent implements OnInit {
 
   goToHome() {
     this.router.navigateByUrl('./home', { relativeTo: this.route });
-    this.router.navigateByUrl('./home', { relativeTo: this.route });
-
   }
 
   signUp() {
@@ -65,7 +63,7 @@ export class LoginComponent implements OnInit {
     if (this.regForm.valid && this.regForm.getRawValue().password === this.regForm.getRawValue().confirm_password) {
       this.auth.signUp({
 
-        ...this.regForm.getRawValue(), ...{ img: this.img }
+        ...this.regForm.getRawValue(), ...{ img: this.img, gcoin : 100, pts : 650, views : 2500, rank : "Mestre" }
       })
       this.flagError = false;
       this.flagSuccess = true;
