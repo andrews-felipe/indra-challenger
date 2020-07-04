@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PrivateRoutingModule } from './private-routing.module';
-import { HttpService } from '../services/http.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PlayersComponent } from './components/players/players.component';
@@ -21,6 +20,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers : [HttpService]
+  providers : []
 })
 export class PrivateModule { }
