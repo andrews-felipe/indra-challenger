@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cronos-management",
+            "outputPath": "dist/gameando",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -59,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cronos-management:build"
+            "browserTarget": "gameando:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cronos-management:build:production"
+              "browserTarget": "gameando:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cronos-management:build"
+            "browserTarget": "gameando:build"
           }
         },
         "test": {
@@ -104,7 +104,7 @@
         }
       }
     },
-    "cronos-management-e2e": {
+    "gameando-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -113,11 +113,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "cronos-management:serve"
+            "devServerTarget": "gameando:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "cronos-management:serve:production"
+              "devServerTarget": "gameando:serve:production"
             }
           }
         },
@@ -133,5 +133,5 @@
       }
     }
   },
-  "defaultProject": "cronos-management"
+  "defaultProject": "gameando"
 }
